@@ -13,7 +13,8 @@ import (
 	"strings"
 )
 
-const commit = "eb759cb118fbf09da51938c04978e609822dbb48"
+//const commit = "eb759cb118fbf09da51938c04978e609822dbb48"
+const commit = "a5f28b39842af9ceb20c85a2d75870eb556a2cc3"
 
 func main() {
 	if runtime.GOOS == "" {
@@ -60,7 +61,7 @@ func main() {
 	if errors.Is(err, fs.ErrNotExist) {
 		fmt.Println("Cloning FLTK repository")
 
-		cloneCmd := exec.Command("git", "clone", "https://github.com/fltk/fltk.git")
+		cloneCmd := exec.Command("git", "clone", "https://github.com/unix-world/fltk.git")
 		cloneCmd.Dir = "fltk_build"
 		cloneCmd.Stdout = os.Stdout
 		cloneCmd.Stderr = os.Stderr
