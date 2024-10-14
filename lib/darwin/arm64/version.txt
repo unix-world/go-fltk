@@ -1,1 +1,4 @@
 uxm :: 20241015
+
+MacOS 15.0.1 Sequoia arm64 M3
+

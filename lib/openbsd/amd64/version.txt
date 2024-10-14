@@ -1,1 +1,3 @@
 uxm :: 20241015
+
+OpenBSD 7.6 amd64
