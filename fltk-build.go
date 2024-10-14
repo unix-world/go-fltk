@@ -143,6 +143,7 @@ func main() {
 		"-DFLTK_LIBDIR="+filepath.Join(currentDir, "lib", runtime.GOOS, runtime.GOARCH))
 
 	if runtime.GOOS == "darwin" {
+		cmakeCmd.Args = append(cmakeCmd.Args, "-DFLTK_BACKEND_X11=OFF") // uxm
 		if runtime.GOARCH == "amd64" {
 			cmakeCmd.Args = append(cmakeCmd.Args, "-DCMAKE_OSX_ARCHITECTURES=x86_64")
 		} else if runtime.GOARCH == "arm64" {
