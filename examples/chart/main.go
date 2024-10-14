@@ -1,6 +1,8 @@
 package main
 
 import (
+	"log"
+
 	"math/rand"
 	"strconv"
 
@@ -31,7 +33,8 @@ func main() {
 	addValueButton.SetCallback(func() {
 		val, err := strconv.ParseFloat(valueEditor.Value(), 64)
 		if err != nil {
-			panic(err)
+			log.Println("ERROR Adding Value:", err)
+			return
 		}
 		ch.Add(val, colors[rand.Intn(len(colors))], valueNameEditor.Value())
 	})
