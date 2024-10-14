@@ -5,7 +5,7 @@ import (
 	"runtime"
 
 	"github.com/go-gl/gl/v2.1/gl"
-	"github.com/pwiecz/go-fltk"
+	"github.com/unix-world/go-fltk"
 )
 
 // A port of fltk CubeView test program to Go

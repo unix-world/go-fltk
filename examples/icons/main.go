@@ -7,7 +7,7 @@ import (
 	_ "image/png"
 	"runtime"
 
-	"github.com/pwiecz/go-fltk"
+	"github.com/unix-world/go-fltk"
 )
 
 //go:embed 8x8.png

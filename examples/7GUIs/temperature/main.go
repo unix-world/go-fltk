@@ -4,7 +4,7 @@ import (
 	"log"
 	"strconv"
 
-	"github.com/pwiecz/go-fltk"
+	"github.com/unix-world/go-fltk"
 )
 
 const (

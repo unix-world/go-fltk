@@ -5,7 +5,7 @@ import (
 
 	_ "embed"
 
-	"github.com/pwiecz/go-fltk"
+	"github.com/unix-world/go-fltk"
 	"github.com/yuin/goldmark"
 )
 

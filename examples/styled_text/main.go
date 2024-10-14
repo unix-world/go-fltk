@@ -3,7 +3,7 @@ package main
 import (
 	"strings"
 
-	"github.com/pwiecz/go-fltk"
+	"github.com/unix-world/go-fltk"
 )
 
 func main() {

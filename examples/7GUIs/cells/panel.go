@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/pwiecz/go-fltk"
+	"github.com/unix-world/go-fltk"
 )
 
 type Panel struct {

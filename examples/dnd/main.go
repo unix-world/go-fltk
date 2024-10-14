@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/pwiecz/go-fltk"
+	"github.com/unix-world/go-fltk"
 )
 
 type Sender struct {
