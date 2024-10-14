@@ -383,7 +383,7 @@ public:
   Fl_Fontsize size; /**< font size */
   Fl_Font_Descriptor(const char* fontname, Fl_Fontsize size);
   virtual FL_EXPORT ~Fl_Font_Descriptor() {}
-  short ascent, descent;
+  int ascent, descent;
   unsigned int listbase;// base of display list, 0 = none
 };
 
@@ -410,6 +410,7 @@ struct Fl_Fontdesc {
  In the future, it may also be used by other platforms.
  */
 class FL_EXPORT Fl_Scalable_Graphics_Driver : public Fl_Graphics_Driver {
+  Fl_Fontsize fontsize_; // scale-independent font size value
 public:
   Fl_Scalable_Graphics_Driver();
   // This function aims to compute accurately int(x * s) in
@@ -425,6 +426,7 @@ protected:
   virtual void point_unscaled(float x, float y);
   void rect(int x, int y, int w, int h) FL_OVERRIDE;
   void rectf(int x, int y, int w, int h) FL_OVERRIDE;
+  virtual void rect_unscaled(int x, int y, int w, int h);
   virtual void rectf_unscaled(int x, int y, int w, int h);
   void line(int x, int y, int x1, int y1) FL_OVERRIDE;
   virtual void line_unscaled(int x, int y, int x1, int y1);

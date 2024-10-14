@@ -12,6 +12,10 @@ go-fltk comes with prebuilt FLTK libraries for some architectures (linux/amd64, 
 or build them for other architectures.
 To build FLTK libraries for your platform it should be enough to call `go generate` from the root of the go-fltk source tree.
 
+### Unix-World: Fix, for MacOS 15+
+After `go generate` will regenerate the libs, and also the source of: `cgo_darwin_arm64.go` or `cgo_darwin_amd64.go`, adding a CGO invalid flag: `-weak_framework` that must be changed to `-framework` ...
+Thereafter test the build with: `go build ./examples/chart` and see if the executable works.
+
 If the build procedure doesn't work for you, you can modify `fltk-build.sh` or `fltk-build.bat` yourself or ask a question on `https://github.com/pwiecz/go-fltk/discussions`.
 
 For running programs built using go-fltk you will need some system libs which are normally available on operating systems with a graphical user interfaces:
