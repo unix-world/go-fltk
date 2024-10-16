@@ -1,0 +1,4 @@
+uxm :: 20241015
+
+MacOS 14.7 Sonoma intel i5
+
