@@ -1,4 +1,6 @@
 .DS_Store
+/bin
+/share
 /fltk_build
 *~
 *.swp
