@@ -9,7 +9,7 @@ import (
 func main() {
 	win := fltk.NewWindow(400, 300)
 	box := fltk.NewBox(fltk.FLAT_BOX, 0, 0, 400, 300, "")
-	image, err := fltk.NewJpegImageLoad("golang-logo.jpg")
+	image, err := fltk.NewPngImageLoad("golang-logo.png")
 	if err != nil {
 		fmt.Printf("An error occured: %s\n", err)
 	} else {
