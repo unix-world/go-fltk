@@ -1,4 +1,4 @@
-uxm :: 20241016
+uxm :: 20241029
 
-MacOS 15.0.1 Sequoia arm64 M3
+MacOS 15.1 Sequoia arm64 M3
 
