@@ -2,5 +2,6 @@
 /bin
 /share
 /fltk_build
+/man
 *~
 *.swp
