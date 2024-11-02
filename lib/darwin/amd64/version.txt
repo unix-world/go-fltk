@@ -1,4 +1,4 @@
-uxm :: 20241015
+uxm :: 20241102
 
-MacOS 14.7 Sonoma intel i5
+MacOS 13.7.1 Ventura intel i5
 
