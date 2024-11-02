@@ -1,4 +1,5 @@
 .DS_Store
+/CMake
 /bin
 /fltk_build
 /man
