@@ -1,3 +1,0 @@
-uxm :: 20241102
-
-Linux Debian 12 amd64

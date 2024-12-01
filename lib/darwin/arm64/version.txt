@@ -1,4 +1,0 @@
-uxm :: 20241102
-
-MacOS 15.1 Sequoia arm64 M3
-
