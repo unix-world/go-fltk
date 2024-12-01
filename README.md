@@ -29,10 +29,6 @@ For running programs built using go-fltk you will need some system libs which ar
     - Xext
     - Xft
     - Xinerama
-    - XKBCommon
-    - Wayland
-    - libdecor
-    - DBus
     - OpenGL
 
 ## Usage

@@ -13,7 +13,8 @@ import (
 	"strings"
 )
 
-const commit = "d547e1956778ed584248179d9141843b86101a0a"
+//const commit = "eb759cb118fbf09da51938c04978e609822dbb48"
+const commit = "11e19d5f0ba743d2ebcc2ef5bfab06b24d834f4d"
 
 func main() {
 	if runtime.GOOS == "" {
@@ -66,7 +67,7 @@ func main() {
 	if errors.Is(err, fs.ErrNotExist) {
 		fmt.Println("Cloning FLTK repository")
 
-		cloneCmd := exec.Command("git", "clone", "https://github.com/fltk/fltk.git")
+		cloneCmd := exec.Command("git", "clone", "https://github.com/unix-world/fltk.git")
 		cloneCmd.Dir = "fltk_build"
 		cloneCmd.Stdout = os.Stdout
 		cloneCmd.Stderr = os.Stderr
@@ -137,9 +138,12 @@ func main() {
 		"-DFLTK_BUILD_HTML_DOCS=OFF",
 		"-DFLTK_BUILD_PDF_DOCS=OFF",
 		"-DFLTK_BUILD_FLTK_OPTIONS=OFF",
+		"-DFLTK_BACKEND_WAYLAND=OFF", // uxm
 		"-DFLTK_USE_SYSTEM_LIBJPEG=OFF",
 		"-DFLTK_USE_SYSTEM_LIBPNG=OFF",
 		"-DFLTK_USE_SYSTEM_ZLIB=OFF",
+		"-DFLTK_USE_PANGO=OFF", // uxm
+		"-DFLTK_GRAPHICS_CAIRO=OFF", // uxm
 		"-DCMAKE_INSTALL_PREFIX="+currentDir,
 		"-DCMAKE_INSTALL_INCLUDEDIR="+includeDir,
 		"-DCMAKE_INSTALL_LIBDIR="+libDir,
@@ -147,6 +151,7 @@ func main() {
 		"-DFLTK_LIBDIR="+filepath.Join(currentDir, "lib", runtime.GOOS, runtime.GOARCH))
 
 	if runtime.GOOS == "darwin" {
+		cmakeCmd.Args = append(cmakeCmd.Args, "-DFLTK_BACKEND_X11=OFF") // uxm
 		if runtime.GOARCH == "amd64" {
 			cmakeCmd.Args = append(cmakeCmd.Args, "-DCMAKE_OSX_ARCHITECTURES=x86_64")
 		} else if runtime.GOARCH == "arm64" {

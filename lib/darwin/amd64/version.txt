@@ -1,0 +1,4 @@
+uxm :: 20241102
+
+MacOS 13.7.1 Ventura intel i5
+
