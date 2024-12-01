@@ -1,2 +1,2 @@
-go-fltk @ with modifications, by unixman 2024-11-02
-https://github.com/pwiecz/go-fltk/commit/49be1fb41870d977c4f1abfa8c1dbd01680242e4
+go-fltk @ with modifications, by unixman 2024-12-01
+https://github.com/pwiecz/go-fltk/commit/fb711587cb9e926667e835dd047a982a6a00f0cf
