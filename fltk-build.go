@@ -14,7 +14,7 @@ import (
 )
 
 //const commit = "eb759cb118fbf09da51938c04978e609822dbb48"
-const commit = "11e19d5f0ba743d2ebcc2ef5bfab06b24d834f4d"
+const commit = "3293a68c1dd232e5d9b659bfe9882c647d727a77"
 
 func main() {
 	if runtime.GOOS == "" {
