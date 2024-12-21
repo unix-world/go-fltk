@@ -13,8 +13,8 @@ import (
 	"strings"
 )
 
-//const commit = "eb759cb118fbf09da51938c04978e609822dbb48"
-const commit = "3293a68c1dd232e5d9b659bfe9882c647d727a77"
+//const commit = "3293a68c1dd232e5d9b659bfe9882c647d727a77"
+const commit = "9f66df51b0e8a04531a4a91ff019375ebbc45bae"
 
 func main() {
 	if runtime.GOOS == "" {
