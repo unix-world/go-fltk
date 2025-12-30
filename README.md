@@ -5,16 +5,16 @@
 
 A simple wrapper around FLTK 1.4 library, which is a lightweight GUI library which allows creating small, self-contained and fast gui applications.
 
+## Status
+
+The library is only a partial wrapper. New functions are being added as the are demanded by the users.
+
 ## Requirements
 For building go-fltk, besides Golang compiler, you will also need a C++11 compiler, such as GCC or Clang on Linux, MinGW on Windows and XCode on MacOS.
 
 go-fltk comes with prebuilt FLTK libraries for some architectures (linux/amd64, windows/amd64), but you can easily rebuild them yourself 
 or build them for other architectures.
 To build FLTK libraries for your platform it should be enough to call `go generate` from the root of the go-fltk source tree.
-
-### Unix-World: Fix, for MacOS 15+
-After `go generate` will regenerate the libs, and also the source of: `cgo_darwin_arm64.go` or `cgo_darwin_amd64.go`, adding a CGO invalid flag: `-weak_framework` that must be changed to `-framework` ...
-Thereafter test the build with: `go build ./examples/chart` and see if the executable works.
 
 If the build procedure doesn't work for you, you can modify `fltk-build.sh` or `fltk-build.bat` yourself or ask a question on `https://github.com/pwiecz/go-fltk/discussions`.
 
@@ -29,6 +29,10 @@ For running programs built using go-fltk you will need some system libs which ar
     - Xext
     - Xft
     - Xinerama
+    - XKBCommon
+    - Wayland
+    - libdecor
+    - DBus
     - OpenGL
 
 ## Usage
@@ -119,7 +123,7 @@ func main() {
 
 ![image](https://user-images.githubusercontent.com/37966791/147374840-2d993522-fc86-46fc-9e95-2b3391d31013.png)
 
-Label attributes can be seen [here](https://www.fltk.org/doc-1.3/common.html#common_labels)
+Label attributes can be seen [here](https://www.fltk.org/doc-1.4/common.html#common_labels)
 
 ## Image support
 FLTK supports vector and raster graphics, via several image types:

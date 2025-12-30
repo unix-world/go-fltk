@@ -125,6 +125,21 @@ func (m *menu) Size() int {
 	return int(C.go_fltk_Menu_size((*C.Fl_Menu_)(m.ptr())))
 }
 
+// Make the shortcuts for this menu work no matter what window has the focus when you type it.
+func (m *menu) SetGlobal() {
+	C.go_fltk_Menu_set_global((*C.Fl_Menu_)(m.ptr()))
+}
+
+// Gets the flags of item id.
+func (m *menu) Mode(id int) int {
+	return int(C.go_fltk_Menu_mode((*C.Fl_Menu_)(m.ptr()), C.int(id)))
+}
+
+// Sets the flags of item id.
+func (m *menu) SetMode(id, flags int) {
+	C.go_fltk_Menu_set_mode((*C.Fl_Menu_)(m.ptr()), C.int(id), C.int(flags))
+}
+
 type MenuButton struct {
 	menu
 }
@@ -164,7 +179,7 @@ func (m *MenuButton) SetType(menuType MenuType) {
 func (m *MenuButton) Popup() {
 	if m.Size() > 0 {
 		// Fltk may crash when Popup is called on empty menu.
-		// https://github.com/unix-world/go-fltk/issues/64
+		// https://github.com/pwiecz/go-fltk/issues/64
 		C.go_fltk_MenuButton_popup((*C.Fl_Menu_Button)(m.ptr()))
 	}
 }
