@@ -145,7 +145,7 @@ public:
   virtual ~Fl_Flex();
 
   virtual void end();
-  void resize(int x, int y, int w, int h) override;
+  void resize(int x, int y, int w, int h) FL_OVERRIDE;
 
   /**
     Set the horizontal or vertical size of a child widget.
@@ -168,8 +168,8 @@ protected:
 
   virtual int alloc_size(int size) const;
 
-  void on_remove(int) override;
-  void draw() override;
+  void on_remove(int) FL_OVERRIDE;
+  void draw() FL_OVERRIDE;
 
 public:
 

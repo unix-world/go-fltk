@@ -154,10 +154,6 @@ public:
     return !(lhs==rhs);
   }
 
-  bool contains(int X, int Y) const {
-    return (X >= x_ && X < r() && Y >= y_ && Y < b());
-  }
-
 }; // class Fl_Rect
 
 #endif // Fl_Rect_H

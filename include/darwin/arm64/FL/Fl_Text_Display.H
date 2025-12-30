@@ -86,7 +86,7 @@ public:
     NORMAL_CURSOR,    /**< I-beam */
     CARET_CURSOR,     /**< caret under the text */
     DIM_CURSOR,       /**< dim I-beam */
-    BLOCK_CURSOR,     /**< unfilled box under the current character */
+    BLOCK_CURSOR,     /**< unfille box under the current character */
     HEAVY_CURSOR,     /**< thick I-beam */
     SIMPLE_CURSOR    /**< as cursor as Fl_Input cursor */
   };
@@ -167,7 +167,7 @@ public:
   Fl_Text_Display(int X, int Y, int W, int H, const char *l = 0);
   ~Fl_Text_Display();
 
-  int handle(int e) override;
+  int handle(int e) FL_OVERRIDE;
 
   void buffer(Fl_Text_Buffer* buf);
 
@@ -434,7 +434,7 @@ public:
 
   virtual void recalc_display();
   virtual void display_needs_recalc();
-  void resize(int X, int Y, int W, int H) override;
+  void resize(int X, int Y, int W, int H) FL_OVERRIDE;
 
   /**
    Convert an x pixel position into a column number.
@@ -472,7 +472,7 @@ protected:
   // Anything with "vline" indicates thats it deals with currently
   // visible lines.
 
-  void draw() override;
+  void draw() FL_OVERRIDE;
   void draw_text(int X, int Y, int W, int H);
   void draw_range(int start, int end);
   void draw_cursor(int, int);

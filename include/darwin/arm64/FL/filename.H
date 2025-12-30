@@ -72,18 +72,20 @@ FL_EXPORT int fl_filename_isdir(const char *name);
 FL_EXPORT int fl_filename_absolute(char *to, int tolen, const char *from, const char *cwd);
 FL_EXPORT int fl_filename_relative(char *to, int tolen, const char *from, const char *cwd);
 
-#include <string>
 
-FL_EXPORT std::string fl_filename_name_str(const std::string &filename);
-FL_EXPORT std::string fl_filename_path_str(const std::string &filename);
-FL_EXPORT std::string fl_filename_ext_str(const std::string &filename);
-FL_EXPORT std::string fl_filename_setext_str(const std::string &filename, const std::string &new_extension);
-FL_EXPORT std::string fl_filename_expand_str(const std::string &from);
-FL_EXPORT std::string fl_filename_absolute_str(const std::string &from);
-FL_EXPORT std::string fl_filename_absolute_str(const std::string &from, const std::string &base);
-FL_EXPORT std::string fl_filename_relative_str(const std::string &from);
-FL_EXPORT std::string fl_filename_relative_str(const std::string &from, const std::string &base);
-FL_EXPORT std::string fl_getcwd_str();
+// FIXME: We can't do this in 1.4.x - enable this block in 1.5 or higher.
+// See fluid/fluid_filename.{h|cxx} for an implementation using Fl_String.
+
+// FL_EXPORT std::string fl_filename_name(const std::string &filename);
+// FL_EXPORT std::string fl_filename_path(const std::string &filename);
+// FL_EXPORT std::string fl_filename_ext(const std::string &filename);
+// FL_EXPORT std::string fl_filename_setext(const std::string &filename, const std::string &new_extension);
+// FL_EXPORT std::string fl_filename_expand(const std::string &from);
+// FL_EXPORT std::string fl_filename_absolute(const std::string &from);
+// FL_EXPORT std::string fl_filename_absolute(const std::string &from, const std::string &base);
+// FL_EXPORT std::string fl_filename_relative(const std::string &from);
+// FL_EXPORT std::string fl_filename_relative(const std::string &from, const std::string &base);
+// FL_EXPORT std::string fl_getcwd();
 
 #  endif /* defined(__cplusplus) */
 

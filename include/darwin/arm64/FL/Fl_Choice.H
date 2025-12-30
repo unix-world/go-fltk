@@ -100,16 +100,12 @@
    }
  \endcode
 
-  FLTK triggers an `FL_BEFORE_MENU` event for this widget right before
-  displaying the menu. This event provides an opportunity to update menu
-  item states and activation. See `test/menubar.cxx`, class `Dynamic_Choice`
-  "Flip" and "Flop" for a usage example.
  */
 class FL_EXPORT Fl_Choice : public Fl_Menu_ {
 protected:
-  void draw() override;
+  void draw() FL_OVERRIDE;
 public:
-  int handle(int) override;
+  int handle(int) FL_OVERRIDE;
 
   Fl_Choice(int X, int Y, int W, int H, const char *L = 0);
 

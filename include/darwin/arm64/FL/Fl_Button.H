@@ -33,6 +33,7 @@
                                          are set to zero.*/
 #define FL_HIDDEN_BUTTON        3   ///< for Forms compatibility
 
+extern FL_EXPORT Fl_Shortcut fl_old_shortcut(const char*);
 
 class Fl_Widget_Tracker;
 
@@ -86,11 +87,11 @@ protected:
   static void key_release_timeout(void*);
   void simulate_key_action();
 
-  void draw() override;
+  void draw() FL_OVERRIDE;
 
 public:
 
-  int handle(int) override;
+  int handle(int) FL_OVERRIDE;
 
   Fl_Button(int X, int Y, int W, int H, const char *L = 0);
 
@@ -157,9 +158,10 @@ public:
 
     \param[in] b down box type
    */
-  void down_box(Fl_Boxtype b) {down_box_ = (uchar)b;}
+  void down_box(Fl_Boxtype b) {down_box_ = b;}
 
-  void shortcut(const char *s);
+  /// (for backwards compatibility)
+  void shortcut(const char *s) {shortcut(fl_old_shortcut(s));}
 
   /// (for backwards compatibility)
   Fl_Color down_color() const {return selection_color();}

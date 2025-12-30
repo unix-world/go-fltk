@@ -80,7 +80,7 @@ class FL_EXPORT Fl_Chart : public Fl_Widget {
   Fl_Color textcolor_;
 
 protected:
-  void draw() override;
+  void draw() FL_OVERRIDE;
 
   // (static) protected draw methods (STR 2022)
   // these methods are documented in src/Fl_Chart.cxx

@@ -70,7 +70,7 @@ protected:
 public:
 
   /** Destructor is accessible despite protected constructor. */
-  ~Fl_Valuator() override { }
+  ~Fl_Valuator() FL_OVERRIDE { }
     /**    Sets the minimum (a) and maximum (b) values for the valuator widget. */
     void bounds(double a, double b) {min=a; max=b;}
     /**    Gets the minimum value for the valuator.  */

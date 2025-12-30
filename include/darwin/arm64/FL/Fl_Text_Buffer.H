@@ -23,7 +23,6 @@
 #define FL_TEXT_BUFFER_H
 
 #include <stdarg.h>     /* va_list */
-#include <string>
 #include "fl_attr.h"    /* Doxygen can't find <FL/fl_attr.h> */
 
 #undef ASSERT_UTF8
@@ -230,12 +229,6 @@ public:
    \return newly allocated text buffer - must be free'd, text is UTF-8
    */
   char* text() const;
-
-  /**
-   \brief Get a copy of the entire contents of the text buffer.
-   \return text as a UTF-8 string
-   */
-  std::string text_str() const;
 
   /**
    Replaces the entire contents of the text buffer.

@@ -13,9 +13,9 @@ import (
 	"strings"
 )
 
-//const commit = "d547e1956778ed584248179d9141843b86101a0a"
-//const commit = "tags/release-1.4.4"
-const commit = "c17c2e3808e374e88ac0fac5f7c774ab78c3bd91"
+//const commit = "f4f3f68605836e826a8782d08467da7af713800c"
+//const commit = "tags/release-1.4.4" // original: 9c70ea95a176933ffd575022d145c284d1fc9ef7
+const commit = "1d55f7c52108dbaab2fea8469511a0b3266a5a5e"
 
 func main() {
 	if runtime.GOOS == "" {

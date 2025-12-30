@@ -89,6 +89,17 @@ inline void fl_push_clip(int x, int y, int w, int h) {
   fl_graphics_driver->push_clip(x, y, w, h);
 }
 /**
+  Intersect the current clip region with a rectangle and push this
+  new region onto the stack (deprecated).
+  \param[in] x,y,w,h position and size
+  \deprecated
+    Please use fl_push_clip(int x, int y, int w, int h) instead.
+    fl_clip(int, int, int, int) will be removed in FLTK 1.5.
+*/
+inline void fl_clip(int x, int y, int w, int h) {
+  fl_graphics_driver->push_clip(x, y, w, h);
+}
+/**
   Push an empty clip region onto the stack so nothing will be clipped.
 */
 inline void fl_push_no_clip() {
@@ -229,16 +240,6 @@ inline void fl_point(int x, int y) {
     array results in a solid line. Odd array sizes are not supported
     and result in undefined behavior.
 
-  In scaled mode, horizontal and vertical lines are drawn with different line
-  widths, depending on the position of the line on screen, to adapt for gaps
-  when drawing adjacent lines. Setting \c FL_UNIFORM_WIDTH will make all lines
-  the same width, regardless of their position. This improves line drawings,
-  but may produce small gaps when drawing gradients or filling areas.
-
-  \note When changing the line style inside a `draw()` method, make sure to
-    reset the line styles by calling \c fl_line_style(0) at the end of a
-    drawing routine or FLTK frame and box drawing will fail.
-
   \note Because of how line styles are implemented on Win32 systems,
     you \e must set the line style \e after setting the drawing
     color. If you set the color after the line style you will lose
@@ -270,9 +271,7 @@ enum {
 
   FL_JOIN_MITER = 0x1000, ///< join style: line join extends to a point
   FL_JOIN_ROUND = 0x2000, ///< join style: line join is rounded
-  FL_JOIN_BEVEL = 0x3000, ///< join style: line join is tidied
-
-  FL_UNIFORM_WIDTH = 0x10000 ///< use uniform line width, even in scaled contexts
+  FL_JOIN_BEVEL = 0x3000  ///< join style: line join is tidied
 };
 
 /**

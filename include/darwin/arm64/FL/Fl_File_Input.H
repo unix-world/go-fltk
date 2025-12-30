@@ -57,16 +57,16 @@ public:
 
   Fl_File_Input(int X, int Y, int W, int H, const char *L=0);
 
-  int handle(int event) override;
+  int handle(int event) FL_OVERRIDE;
 
 protected:
-  void draw() override;
+  void draw() FL_OVERRIDE;
 
 public:
   /** Gets the box type used for the navigation bar. */
   Fl_Boxtype    down_box() const { return (Fl_Boxtype)down_box_; }
   /** Sets the box type to use for the navigation bar.  */
-  void          down_box(Fl_Boxtype b) { down_box_ = (uchar)b; }
+  void          down_box(Fl_Boxtype b) { down_box_ = b; }
 
   /**
     Gets the current error color.

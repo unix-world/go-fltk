@@ -52,14 +52,10 @@
     is done instead, along with any userdata configured for it.
     The callback can determine which item was picked using
     value(), mvalue(), item_pathname(), etc.
-
-  FLTK triggers an `FL_BEFORE_MENU` event for this widget right before
-  displaying the menu. This event provides an opportunity to update menu
-  item states and activation.
 */
 class FL_EXPORT Fl_Menu_Button : public Fl_Menu_ {
 protected:
-  void draw() override;
+  void draw() FL_OVERRIDE;
   static Fl_Menu_Button* pressed_menu_button_;
 public:
   /**
@@ -76,7 +72,7 @@ public:
     POPUP23,  /**< pops up with the mouse 2nd or 3rd buttons. */
     POPUP123 /**< pops up with any mouse button. */
   };
-  int handle(int) override;
+  int handle(int) FL_OVERRIDE;
   const Fl_Menu_Item* popup();
   Fl_Menu_Button(int,int,int,int,const char * =0);
 };

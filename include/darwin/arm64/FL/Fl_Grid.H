@@ -177,15 +177,15 @@ public:
 
     Cell(int row, int col) {    // constructor
       Cell_();
-      row_ = (short)row;
-      col_ = (short)col;
+      row_ = row;
+      col_ = col;
     }
 
     Cell(Fl_Widget *w, int row, int col) {  // widget assignment
       Cell_();
       widget_ = w;
-      row_ = (short)row;
-      col_ = (short)col;
+      row_ = row;
+      col_ = col;
     }
 
     /**
@@ -270,7 +270,7 @@ public:
   virtual void layout(int rows, int cols, int margin = -1, int gap = -1);
   virtual void layout();
   virtual void clear_layout();
-  virtual void resize(int X, int Y, int W, int H) override;
+  virtual void resize(int X, int Y, int W, int H) FL_OVERRIDE;
 
   short rows() const { return rows_; }
   short cols() const { return cols_; }
@@ -303,8 +303,8 @@ public:
   }
 
 protected:
-  virtual void draw() override;
-  void on_remove(int) override;
+  virtual void draw() FL_OVERRIDE;
+  void on_remove(int) FL_OVERRIDE;
   virtual void draw_grid();           // draw grid lines for debugging
 
 public:

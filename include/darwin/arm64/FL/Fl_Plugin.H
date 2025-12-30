@@ -18,12 +18,9 @@
    Fl_Plugin class . */
 
 #ifndef Fl_Plugin_H
-#define Fl_Plugin_H
+#  define Fl_Plugin_H
 
-#include "Fl_Preferences.H"
-
-#include <string>
-#include <vector>
+#  include "Fl_Preferences.H"
 
 
 /**
@@ -86,7 +83,6 @@ public:
   static void removePlugin(Fl_Preferences::ID id);
   static int load(const char *filename);
   static int loadAll(const char *dirpath, const char *pattern=0);
-  static std::vector<std::string> klass_list();
 };
 
 

@@ -2,5 +2,5 @@ uxm :: 20251230
 
 MacOS 15.5 Sequoia arm64 M3
 
-tag: 323d525591438ab8937edf0e1ff522d4a4af45c2
+tag: 1d55f7c52108dbaab2fea8469511a0b3266a5a5e
 
