@@ -1,4 +1,0 @@
-uxm :: 20241216
-
-Windows 11 Pro (64-bit) amd64
-
