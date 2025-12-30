@@ -2,7 +2,7 @@
 // Fl_Terminal - A terminal widget for Fast Light Tool Kit (FLTK).
 //
 // Copyright 2022 by Greg Ercolano.
-// Copyright 2024 by Bill Spitzak and others.
+// Copyright 2024-2025 by Bill Spitzak and others.
 //
 // This library is free software. Distribution and use rights are outlined in
 // the file "COPYING" which should have been included with this file.  If this
@@ -483,14 +483,14 @@ protected:
       else                        bgcolor(defaultbgcolor_);
     }
     int  onoff(bool flag, Attrib a) { return (flag ? (attrib_ | a) : (attrib_ & ~a)); }
-    void sgr_bold(bool val)      { attrib_ = onoff(val, Fl_Terminal::BOLD);      } // e.g. ESC[1m
-    void sgr_dim(bool val)       { attrib_ = onoff(val, Fl_Terminal::DIM);       } // e.g. ESC[2m
-    void sgr_italic(bool val)    { attrib_ = onoff(val, Fl_Terminal::ITALIC);    } // e.g. ESC[3m
-    void sgr_underline(bool val) { attrib_ = onoff(val, Fl_Terminal::UNDERLINE); } // e.g. ESC[3m
-    void sgr_dbl_under(bool val) { attrib_ = onoff(val, Fl_Terminal::UNDERLINE); } // e.g. ESC[21m (TODO!)
-    void sgr_blink(bool val)     { (void)val; /* NOT IMPLEMENTED */              } // e.g. ESC[5m
-    void sgr_inverse(bool val)   { attrib_ = onoff(val, Fl_Terminal::INVERSE);   } // e.g. ESC[7m
-    void sgr_strike(bool val)    { attrib_ = onoff(val, Fl_Terminal::STRIKEOUT); } // e.g. ESC[9m
+    void sgr_bold(bool val)      { attrib_ = (uchar)onoff(val, Fl_Terminal::BOLD);      } // e.g. ESC[1m
+    void sgr_dim(bool val)       { attrib_ = (uchar)onoff(val, Fl_Terminal::DIM);       } // e.g. ESC[2m
+    void sgr_italic(bool val)    { attrib_ = (uchar)onoff(val, Fl_Terminal::ITALIC);    } // e.g. ESC[3m
+    void sgr_underline(bool val) { attrib_ = (uchar)onoff(val, Fl_Terminal::UNDERLINE); } // e.g. ESC[3m
+    void sgr_dbl_under(bool val) { attrib_ = (uchar)onoff(val, Fl_Terminal::UNDERLINE); } // e.g. ESC[21m (TODO!)
+    void sgr_blink(bool val)     { (void)val; /* NOT IMPLEMENTED */                     } // e.g. ESC[5m
+    void sgr_inverse(bool val)   { attrib_ = (uchar)onoff(val, Fl_Terminal::INVERSE);   } // e.g. ESC[7m
+    void sgr_strike(bool val)    { attrib_ = (uchar)onoff(val, Fl_Terminal::STRIKEOUT); } // e.g. ESC[9m
   };
 
 protected:
@@ -829,10 +829,10 @@ public:
   /**
     Vertical scrollbar. This is public so it can be accessed directly, e.g.
 
-    - \ref Fl_Scrollbar::value(void) "scrollbar->value(void)" returns the row offset
+    - \ref Fl_Scrollbar::value()      "scrollbar->value()" returns the row offset
       from the bottom of the display, 0 being the bottom (default).
-    - \ref Fl_Scrollbar::value(int) "scrollbar->value(int)" similarly sets the row offset,
-      which should be in the range [0 .. Fl_Scrollbar::maximum()].
+    - \ref Fl_Scrollbar::value(int)   "scrollbar->value(int)" similarly sets the row
+      offset, which should be in the range [0 .. Fl_Scrollbar::maximum()].
     - \ref Fl_Scrollbar::step(double) "scrollbar->step(double)" sets the smoothness
       of scrolling, default is 0.25 for 4 steps of motion per column.
 
@@ -843,10 +843,10 @@ public:
   /**
     Horizontal scrollbar. This is public so it can be accessed directly, e.g.
 
-    - \ref Fl_Scrollbar::value(void) "hscrollbar->value(void)" returns the column offset
+    - \ref Fl_Scrollbar::value()      "hscrollbar->value()" returns the column offset
       position from the left edge of the display; 0 being the left edge (default).
-    - \ref Fl_Scrollbar::value(int) "hscrollbar->value(int)" similarly sets the column offset,
-      which should be in the range [0 .. Fl_Scrollbar::maximum()].
+    - \ref Fl_Scrollbar::value(int)   "hscrollbar->value(int)" similarly sets the column
+      offset, which should be in the range [0 .. Fl_Scrollbar::maximum()].
     - \ref Fl_Scrollbar::step(double) "hscrollbar->step(double)" sets the smoothness
       of scrolling, default is 0.25 for 4 steps of motion per column.
    */
@@ -1012,8 +1012,10 @@ private:
   void display_modified(void);
   void display_modified_clear(void);
   void clear_char_at_disp(int drow, int dcol);
+protected:
   const Utf8Char* utf8_char_at_disp(int drow, int dcol) const;
   const Utf8Char* utf8_char_at_glob(int grow, int gcol) const;
+private:
   void repeat_char(char c, int rep);
   void utf8_cache_clear(void);
   void utf8_cache_flush(void);
@@ -1039,9 +1041,9 @@ private:
   int  handle_selection(int e);
 public:
   // FLTK: draw(), resize(), handle()
-  void draw(void) FL_OVERRIDE;
-  void resize(int X,int Y,int W,int H) FL_OVERRIDE;
-  int  handle(int e) FL_OVERRIDE;
+  void draw(void) override;
+  void resize(int X,int Y,int W,int H) override;
+  int  handle(int e) override;
   const char* text(bool lines_below_cursor=false) const;
 
 protected:
