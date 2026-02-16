@@ -1,6 +1,6 @@
-uxm :: 20251230
+uxm :: 20260216
 
-OpenBSD 7.6 amd64
+OpenBSD 7.7 amd64
 
 tag: 1d55f7c52108dbaab2fea8469511a0b3266a5a5e
 
